@@ -1,0 +1,134 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    {{bookInfo[0]['title']}}
+{% endblock %}
+
+{% block content %}
+
+    <div class="row book-container">
+        <div class="col-lg-4 col-sm-6">
+            <img src="http://covers.openlibrary.org/b/isbn/{{bookInfo[0]['isbn']}}-M.jpg" width="130px">
+        </div>
+
+
+          <div class="col-lg-4 col-sm-6">
+           <div class="d-flex justify-content-center">
+              <div class="card border-primary mb-3 bg-dark text-white" style="width: 18rem">
+               <div class="card-body">
+              <h4 class="card-title">{{bookInfo[0]['title']}}</h4>
+              <h6 class="card-text">Author: {{bookInfo[0]['author']}}</h6>
+              <h6 class="card-text">Published: {{bookInfo[0]['year']}}</h6>
+              <h6 class="card-text">ISBN-10: {{bookInfo[0]['isbn']}}</h6>
+               </div>
+          <div class="card-footer">
+            </div>
+
+          </div>
+          </div>
+         </div>
+
+
+        <!--GOODREADS REVIEWS -->
+        <div class="col-lg-4 col-sm-6">
+            <img class="mb-3" src="../static/goodreads.jpg" alt="Goodreads" width="200" height="45">
+            <h5>No of Ratings: {{bookInfo[1]['work_ratings_count']}}</h5>
+            <h5>Average Rating: {{bookInfo[1]['average_rating']}}</h5>
+            <h5>
+                <a href="https://www.goodreads.com/search?q={{bookInfo[0]['title']}}" style="color:primary">Goodreads Page</a>
+            </h5>
+        </div>
+    </div>
+    <div class="dropdown-divider"></div>
+
+    <h4 class="alert alert-primary">Users Reviews</h4>
+
+
+    <div>
+
+
+      <form method="POST">
+        <div class="form-group">
+           <label for="exampleFormControlTextarea1"><h5>Make your own review!</h5></label>
+           <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+      </div>
+  <div class="form-row align-items-center justify-content-end">
+    <div class="col-auto my-1">
+      <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+      <select class="custom-select mr-sm-2" id="rating" name="rating">
+        <option selected>Rate...</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+    </div>
+
+    <div class="col-auto my-1">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+        <!-- REVIEW FORM -->
+        <!-- <form method="POST" class="form-border">
+            <div class="form-row">
+                <div class="form-group col-sm-1">
+                    <label for="rating">Rate this book</label>
+                    <select id="rating" name="rating" class="form-control" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option selected value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group col-sm-10">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Say something</span>
+                        </div>
+                        <textarea name="comment" id="comment" class="form-control" rows="1" required></textarea>
+                    </div>
+                </div>
+                <div class="form-group col-sm-1">
+                    <button class="btn btn-success" type="submit">Submit</button>
+                </div>
+            </div>
+        </form> -->
+
+        <!-- REVIEW LIST -->
+        {% for review in reviews %}
+        <div class="list-group">
+
+  <a href="#" class="list-group-item list-group-item-action flex-column align-items-start list-group-item-light">
+    <div class="d-flex w-100 justify-content-between align-items-center">
+      <h5 class="mb-1">{{review['username']}} said...</h5>
+      <small class="text-muted">{{review['time']}}</small>
+    </div>
+    <p class="mb-1">{{review['comment']}}</p>
+    <small class="text-muted">Rated: {{review['rating']}}</small>
+  </a>
+
+</div>
+{% endfor %}
+        <!-- <div id="userReviews">
+            <h2></h2>
+            {% for review in reviews %}
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h6 class="mb-1" style="color:burlywood">{{review['username']}} said...</h6>
+                        <small>{{review['time']}}</small>
+                    </div>
+                    <p class="mb-1">{{review['comment']}}</p>
+                    <small>Rated: {{review['rating']}}</small>
+                </a>
+                <div class="dropdown-divider"></div>
+            </div>
+            {% endfor %}
+        </div>
+    </div> -->
+{% endblock %}
+~
+~
