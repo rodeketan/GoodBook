@@ -25,9 +25,8 @@ Session(app)
 # Set up database
 
 # database engine object from SQLAlchemy that manages connections to the database
-# engine = create_engine(os.getenv("DATABASE_URL"))
-engine = create_engine("postgresql://ytgsqitccrontf:63128cc39825c010041506b53808ce2a7455c78fcd28daa59e223b7c23f1fe22@ec2-34-232-147-86.compute-1.amazonaws.com:5432/d2ecll3gabfldb"
-)
+engine = create_engine(os.getenv("DATABASE_URL"))
+
 
 # create a 'scoped session' that ensures different users' interactions with the
 # database are kept separate
