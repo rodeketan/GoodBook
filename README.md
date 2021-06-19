@@ -1,4 +1,4 @@
-
+# Library 
 In this project I made a book review website where a user can login and search for a book by its title, author name or ISBN number. User can also see reviews from other users and can write his personal review about the book too. User can also see ratings from popular website 'Goodreads'. The complete website is responsive. An API is also included which returns the JSON object containing details about the book and its ratings.
 
 
@@ -57,8 +57,4 @@ I have used three tables.
 3. reviews(id, user_id, book_id, comment, rating, time)
 
 
-# ENV Variables
-$ export FLASK_APP = application.py # flask run
-$ export DATABASE_URL ="postgres://ytgsqitccrontf:63128cc39825c010041506b53808ce2a7455c78fcd28daa59e223b7c23f1fe22@ec2-34-232-147-86.compute-1.amazonaws.com:5432/d2ecll3gabfldb"
-$ export GOODREADS_KEY ="V3UTmmnnNhiHYLoSUc2DSg" 
 
