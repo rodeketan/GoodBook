@@ -36,7 +36,7 @@ This folder contains 7 HTML files.
   2. _**login.html**_
 
     This file contains the html for the login page.
-  3. _** register.html**_
+  3. _**register.html**_
    
     This file contains the html for sign up page.
   4. _**index.html**_
